@@ -12,6 +12,11 @@ namespace battleship
 {
     public partial class gameForm : Form
     {
+        char[,] playerTable = new char[10, 10];
+        Random random = new Random();
+
+        private int playerShips;
+        private int enemyShips;
         private string userName;
         private int timeLapse;
         private int tries;
@@ -26,6 +31,7 @@ namespace battleship
             timeLapseTimer.Start();
             playerInfo player = new playerInfo(userName);
             userNameLabel.Text = player.PlayerName;
+            
             
 
         }
@@ -42,6 +48,14 @@ namespace battleship
         {
             timeLapse += 1;
             timeLapseLabel.Text = timeLapse.ToString();
+        }
+
+        private void resetGame()
+        {
+            for (int i=0; i<10; i++)
+            {
+
+            }
         }
     }
 }
