@@ -1,0 +1,12 @@
+C:\Users\trian\source\repos\battleship\battleship\bin\Debug\battleship.exe.config
+C:\Users\trian\source\repos\battleship\battleship\bin\Debug\battleship.exe
+C:\Users\trian\source\repos\battleship\battleship\bin\Debug\battleship.pdb
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.csproj.AssemblyReference.cache
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.csproj.SuggestedBindingRedirects.cache
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.Properties.Resources.resources
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.csproj.GenerateResource.cache
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.csproj.CoreCompileInputs.cache
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.exe
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.pdb
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.menuForm.resources
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.gameForm.resources
