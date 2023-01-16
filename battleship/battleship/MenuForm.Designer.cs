@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.exitButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.welcomeText = new System.Windows.Forms.Label();
             this.txtEnterName = new System.Windows.Forms.Label();
             this.errorMessage = new System.Windows.Forms.Label();
+            this.startLabel = new System.Windows.Forms.Label();
+            this.startGameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // exitButton
@@ -121,6 +124,23 @@
             this.errorMessage.TabIndex = 5;
             this.errorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // startLabel
+            // 
+            this.startLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.startLabel.Location = new System.Drawing.Point(0, 353);
+            this.startLabel.Name = "startLabel";
+            this.startLabel.Size = new System.Drawing.Size(1300, 106);
+            this.startLabel.TabIndex = 6;
+            this.startLabel.Text = "STARTING GAME...";
+            this.startLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // startGameTimer
+            // 
+            this.startGameTimer.Interval = 1000;
+            this.startGameTimer.Tick += new System.EventHandler(this.startGameTimer_Tick);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -133,6 +153,7 @@
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.startLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuForm";
             this.Opacity = 0.99D;
@@ -154,6 +175,8 @@
         private System.Windows.Forms.Label welcomeText;
         private System.Windows.Forms.Label txtEnterName;
         private System.Windows.Forms.Label errorMessage;
+        private System.Windows.Forms.Label startLabel;
+        private System.Windows.Forms.Timer startGameTimer;
     }
 }
 

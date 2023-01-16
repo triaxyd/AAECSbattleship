@@ -15,6 +15,7 @@ namespace battleship
     {
         private string userName;
         private SoundPlayer mainSound;
+        private int counter;
         public MenuForm()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace battleship
         {
             InitializeSound();
             mainSound.PlayLooping();
+            startLabel.Hide();
 
         }
 
@@ -42,14 +44,19 @@ namespace battleship
             closeMenu();
         }
 
+        private void startingNow()
+        {
+            errorMessage.Text = "";
+            startLabel.Show();
+
+        }
+
         private void closeMenu()
         {
-            if (checkName()==0)
-            {
-                mainSound.Stop();
-                this.Close();
-                gameForm gameform = new gameForm(userName);
-                gameform.Show();
+            if (checkName() == 0)
+            { 
+                startGameTimer.Start();
+                startingNow();
             }
             else if (checkName() == 1)
             {
@@ -79,6 +86,17 @@ namespace battleship
             return -1; 
         }
 
-        
+        private void startGameTimer_Tick(object sender, EventArgs e)
+        {
+            counter++;
+            if (counter == 1 )
+            {
+                startGameTimer.Stop();
+                mainSound.Stop();
+                this.Close();
+                gameForm gameform = new gameForm(userName);
+                gameform.Show();
+            }
+        }
     }
 }
