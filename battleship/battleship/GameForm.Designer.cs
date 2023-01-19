@@ -33,7 +33,7 @@
             this.txtTimeLapseLabel = new System.Windows.Forms.Label();
             this.txtUserNameLabel = new System.Windows.Forms.Label();
             this.timeLapseLabel = new System.Windows.Forms.Label();
-            this.txtRound = new System.Windows.Forms.Label();
+            this.txtRoundLabel = new System.Windows.Forms.Label();
             this.roundLabel = new System.Windows.Forms.Label();
             this.timeLapseTimer = new System.Windows.Forms.Timer(this.components);
             this.letterLabel = new System.Windows.Forms.Label();
@@ -280,16 +280,35 @@
             this.I2 = new System.Windows.Forms.Button();
             this.I1 = new System.Windows.Forms.Button();
             this.waitForEnemy = new System.Windows.Forms.Timer(this.components);
+            this.txtStatsPlayerLabel = new System.Windows.Forms.Label();
+            this.txtStatsEnemyLabel = new System.Windows.Forms.Label();
+            this.pressEnterLabel = new System.Windows.Forms.Label();
+            this.pressEscLabel = new System.Windows.Forms.Label();
+            this.yourHitsLabel = new System.Windows.Forms.Label();
+            this.txtYourShipsSunkLabel = new System.Windows.Forms.Label();
+            this.txtYourHitsLabel = new System.Windows.Forms.Label();
+            this.yourShipsSunkLabel = new System.Windows.Forms.Label();
+            this.enemyShipsSunkLabel = new System.Windows.Forms.Label();
+            this.txtEnemyHitsLabel = new System.Windows.Forms.Label();
+            this.txtEnemyShipsSunkLabel = new System.Windows.Forms.Label();
+            this.enemyHitsLabel = new System.Windows.Forms.Label();
+            this.enemyWinsLabel = new System.Windows.Forms.Label();
+            this.txtEnemyWinsLabel = new System.Windows.Forms.Label();
+            this.playerWinsLabel = new System.Windows.Forms.Label();
+            this.txtPlayerWinsLabel = new System.Windows.Forms.Label();
+            this.txtDifficultyLabel = new System.Windows.Forms.Label();
+            this.difficultyLabel = new System.Windows.Forms.Label();
+            this.leaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userNameLabel
             // 
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.userNameLabel.Location = new System.Drawing.Point(477, 19);
+            this.userNameLabel.Location = new System.Drawing.Point(320, 51);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(10);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(302, 105);
+            this.userNameLabel.Size = new System.Drawing.Size(302, 60);
             this.userNameLabel.TabIndex = 0;
             this.userNameLabel.Text = "player";
             this.userNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,10 +317,10 @@
             // 
             this.txtTimeLapseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeLapseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.txtTimeLapseLabel.Location = new System.Drawing.Point(897, 19);
+            this.txtTimeLapseLabel.Location = new System.Drawing.Point(1157, 51);
             this.txtTimeLapseLabel.Margin = new System.Windows.Forms.Padding(10);
             this.txtTimeLapseLabel.Name = "txtTimeLapseLabel";
-            this.txtTimeLapseLabel.Size = new System.Drawing.Size(188, 105);
+            this.txtTimeLapseLabel.Size = new System.Drawing.Size(188, 60);
             this.txtTimeLapseLabel.TabIndex = 4;
             this.txtTimeLapseLabel.Text = "GAME TIME:";
             this.txtTimeLapseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -310,10 +329,10 @@
             // 
             this.txtUserNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.txtUserNameLabel.Location = new System.Drawing.Point(274, 19);
+            this.txtUserNameLabel.Location = new System.Drawing.Point(117, 51);
             this.txtUserNameLabel.Margin = new System.Windows.Forms.Padding(10);
             this.txtUserNameLabel.Name = "txtUserNameLabel";
-            this.txtUserNameLabel.Size = new System.Drawing.Size(183, 105);
+            this.txtUserNameLabel.Size = new System.Drawing.Size(183, 60);
             this.txtUserNameLabel.TabIndex = 5;
             this.txtUserNameLabel.Text = "USERNAME:";
             this.txtUserNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -322,34 +341,34 @@
             // 
             this.timeLapseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLapseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.timeLapseLabel.Location = new System.Drawing.Point(1105, 19);
+            this.timeLapseLabel.Location = new System.Drawing.Point(1365, 51);
             this.timeLapseLabel.Margin = new System.Windows.Forms.Padding(10);
             this.timeLapseLabel.Name = "timeLapseLabel";
-            this.timeLapseLabel.Size = new System.Drawing.Size(112, 105);
+            this.timeLapseLabel.Size = new System.Drawing.Size(112, 60);
             this.timeLapseLabel.TabIndex = 6;
             this.timeLapseLabel.Text = "0";
             this.timeLapseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtRound
+            // txtRoundLabel
             // 
-            this.txtRound.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.txtRound.Location = new System.Drawing.Point(1408, 19);
-            this.txtRound.Margin = new System.Windows.Forms.Padding(10);
-            this.txtRound.Name = "txtRound";
-            this.txtRound.Size = new System.Drawing.Size(188, 105);
-            this.txtRound.TabIndex = 7;
-            this.txtRound.Text = "ROUND:";
-            this.txtRound.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtRoundLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoundLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.txtRoundLabel.Location = new System.Drawing.Point(1573, 51);
+            this.txtRoundLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.txtRoundLabel.Name = "txtRoundLabel";
+            this.txtRoundLabel.Size = new System.Drawing.Size(188, 60);
+            this.txtRoundLabel.TabIndex = 7;
+            this.txtRoundLabel.Text = "ROUND:";
+            this.txtRoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // roundLabel
             // 
             this.roundLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.roundLabel.Location = new System.Drawing.Point(1616, 19);
+            this.roundLabel.Location = new System.Drawing.Point(1781, 51);
             this.roundLabel.Margin = new System.Windows.Forms.Padding(10);
             this.roundLabel.Name = "roundLabel";
-            this.roundLabel.Size = new System.Drawing.Size(112, 105);
+            this.roundLabel.Size = new System.Drawing.Size(112, 60);
             this.roundLabel.TabIndex = 8;
             this.roundLabel.Text = "0";
             this.roundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -364,7 +383,7 @@
             this.letterLabel.AutoSize = true;
             this.letterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.letterLabel.Location = new System.Drawing.Point(74, 292);
+            this.letterLabel.Location = new System.Drawing.Point(91, 292);
             this.letterLabel.Margin = new System.Windows.Forms.Padding(20);
             this.letterLabel.Name = "letterLabel";
             this.letterLabel.Size = new System.Drawing.Size(38, 37);
@@ -376,7 +395,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label1.Location = new System.Drawing.Point(76, 377);
+            this.label1.Location = new System.Drawing.Point(93, 377);
             this.label1.Margin = new System.Windows.Forms.Padding(20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 37);
@@ -388,7 +407,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label2.Location = new System.Drawing.Point(73, 454);
+            this.label2.Location = new System.Drawing.Point(90, 454);
             this.label2.Margin = new System.Windows.Forms.Padding(20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 37);
@@ -400,7 +419,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label3.Location = new System.Drawing.Point(73, 531);
+            this.label3.Location = new System.Drawing.Point(90, 531);
             this.label3.Margin = new System.Windows.Forms.Padding(20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 37);
@@ -412,7 +431,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label4.Location = new System.Drawing.Point(73, 839);
+            this.label4.Location = new System.Drawing.Point(90, 839);
             this.label4.Margin = new System.Windows.Forms.Padding(20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 37);
@@ -424,7 +443,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label5.Location = new System.Drawing.Point(72, 762);
+            this.label5.Location = new System.Drawing.Point(89, 762);
             this.label5.Margin = new System.Windows.Forms.Padding(20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 37);
@@ -436,7 +455,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label6.Location = new System.Drawing.Point(73, 685);
+            this.label6.Location = new System.Drawing.Point(90, 685);
             this.label6.Margin = new System.Windows.Forms.Padding(20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 37);
@@ -448,7 +467,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label7.Location = new System.Drawing.Point(73, 608);
+            this.label7.Location = new System.Drawing.Point(90, 608);
             this.label7.Margin = new System.Windows.Forms.Padding(20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 37);
@@ -460,7 +479,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label10.Location = new System.Drawing.Point(76, 989);
+            this.label10.Location = new System.Drawing.Point(93, 989);
             this.label10.Margin = new System.Windows.Forms.Padding(20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 37);
@@ -472,7 +491,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label8.Location = new System.Drawing.Point(74, 916);
+            this.label8.Location = new System.Drawing.Point(91, 916);
             this.label8.Margin = new System.Windows.Forms.Padding(20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 37);
@@ -846,7 +865,7 @@
             this.youLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.youLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.youLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
-            this.youLabel.Location = new System.Drawing.Point(277, 126);
+            this.youLabel.Location = new System.Drawing.Point(186, 126);
             this.youLabel.Margin = new System.Windows.Forms.Padding(5);
             this.youLabel.Name = "youLabel";
             this.youLabel.Size = new System.Drawing.Size(436, 68);
@@ -861,7 +880,7 @@
             this.enemyLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enemyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enemyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
-            this.enemyLabel.Location = new System.Drawing.Point(1346, 126);
+            this.enemyLabel.Location = new System.Drawing.Point(1370, 126);
             this.enemyLabel.Margin = new System.Windows.Forms.Padding(5);
             this.enemyLabel.Name = "enemyLabel";
             this.enemyLabel.Size = new System.Drawing.Size(436, 68);
@@ -874,10 +893,10 @@
             this.helpLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
             this.helpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
-            this.helpLabel.Location = new System.Drawing.Point(723, 119);
+            this.helpLabel.Location = new System.Drawing.Point(634, 119);
             this.helpLabel.Margin = new System.Windows.Forms.Padding(5);
             this.helpLabel.Name = "helpLabel";
-            this.helpLabel.Size = new System.Drawing.Size(613, 80);
+            this.helpLabel.Size = new System.Drawing.Size(726, 80);
             this.helpLabel.TabIndex = 252;
             this.helpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -3786,12 +3805,280 @@
             this.waitForEnemy.Interval = 2000;
             this.waitForEnemy.Tick += new System.EventHandler(this.waitForEnemy_Tick);
             // 
+            // txtStatsPlayerLabel
+            // 
+            this.txtStatsPlayerLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtStatsPlayerLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtStatsPlayerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatsPlayerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.txtStatsPlayerLabel.Location = new System.Drawing.Point(221, 423);
+            this.txtStatsPlayerLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtStatsPlayerLabel.Name = "txtStatsPlayerLabel";
+            this.txtStatsPlayerLabel.Size = new System.Drawing.Size(800, 68);
+            this.txtStatsPlayerLabel.TabIndex = 453;
+            this.txtStatsPlayerLabel.Text = "YOUR STATS";
+            this.txtStatsPlayerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtStatsEnemyLabel
+            // 
+            this.txtStatsEnemyLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtStatsEnemyLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtStatsEnemyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatsEnemyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.txtStatsEnemyLabel.Location = new System.Drawing.Point(1031, 423);
+            this.txtStatsEnemyLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtStatsEnemyLabel.Name = "txtStatsEnemyLabel";
+            this.txtStatsEnemyLabel.Size = new System.Drawing.Size(800, 68);
+            this.txtStatsEnemyLabel.TabIndex = 454;
+            this.txtStatsEnemyLabel.Text = "ENEMY STATS";
+            this.txtStatsEnemyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pressEnterLabel
+            // 
+            this.pressEnterLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pressEnterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pressEnterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(220)))));
+            this.pressEnterLabel.Location = new System.Drawing.Point(1, 235);
+            this.pressEnterLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.pressEnterLabel.Name = "pressEnterLabel";
+            this.pressEnterLabel.Size = new System.Drawing.Size(2000, 68);
+            this.pressEnterLabel.TabIndex = 455;
+            this.pressEnterLabel.Text = "PRESS (ENTER) TO PLAY AGAIN";
+            this.pressEnterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pressEscLabel
+            // 
+            this.pressEscLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pressEscLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pressEscLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(220)))));
+            this.pressEscLabel.Location = new System.Drawing.Point(1, 322);
+            this.pressEscLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.pressEscLabel.Name = "pressEscLabel";
+            this.pressEscLabel.Size = new System.Drawing.Size(2000, 68);
+            this.pressEscLabel.TabIndex = 456;
+            this.pressEscLabel.Text = "PRESS (ESC) FOR MENU";
+            this.pressEscLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // yourHitsLabel
+            // 
+            this.yourHitsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.yourHitsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yourHitsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourHitsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.yourHitsLabel.Location = new System.Drawing.Point(509, 600);
+            this.yourHitsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.yourHitsLabel.Name = "yourHitsLabel";
+            this.yourHitsLabel.Size = new System.Drawing.Size(200, 52);
+            this.yourHitsLabel.TabIndex = 457;
+            this.yourHitsLabel.Text = "0";
+            this.yourHitsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtYourShipsSunkLabel
+            // 
+            this.txtYourShipsSunkLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.txtYourShipsSunkLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtYourShipsSunkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYourShipsSunkLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtYourShipsSunkLabel.Location = new System.Drawing.Point(408, 677);
+            this.txtYourShipsSunkLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtYourShipsSunkLabel.Name = "txtYourShipsSunkLabel";
+            this.txtYourShipsSunkLabel.Size = new System.Drawing.Size(400, 52);
+            this.txtYourShipsSunkLabel.TabIndex = 458;
+            this.txtYourShipsSunkLabel.Text = "SHIPS SUNK";
+            this.txtYourShipsSunkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtYourHitsLabel
+            // 
+            this.txtYourHitsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.txtYourHitsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtYourHitsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYourHitsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtYourHitsLabel.Location = new System.Drawing.Point(408, 523);
+            this.txtYourHitsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtYourHitsLabel.Name = "txtYourHitsLabel";
+            this.txtYourHitsLabel.Size = new System.Drawing.Size(400, 52);
+            this.txtYourHitsLabel.TabIndex = 459;
+            this.txtYourHitsLabel.Text = "HITS";
+            this.txtYourHitsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // yourShipsSunkLabel
+            // 
+            this.yourShipsSunkLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.yourShipsSunkLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yourShipsSunkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourShipsSunkLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.yourShipsSunkLabel.Location = new System.Drawing.Point(509, 752);
+            this.yourShipsSunkLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.yourShipsSunkLabel.Name = "yourShipsSunkLabel";
+            this.yourShipsSunkLabel.Size = new System.Drawing.Size(200, 52);
+            this.yourShipsSunkLabel.TabIndex = 460;
+            this.yourShipsSunkLabel.Text = "0";
+            this.yourShipsSunkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // enemyShipsSunkLabel
+            // 
+            this.enemyShipsSunkLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.enemyShipsSunkLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.enemyShipsSunkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyShipsSunkLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.enemyShipsSunkLabel.Location = new System.Drawing.Point(1337, 752);
+            this.enemyShipsSunkLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.enemyShipsSunkLabel.Name = "enemyShipsSunkLabel";
+            this.enemyShipsSunkLabel.Size = new System.Drawing.Size(200, 52);
+            this.enemyShipsSunkLabel.TabIndex = 464;
+            this.enemyShipsSunkLabel.Text = "0";
+            this.enemyShipsSunkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtEnemyHitsLabel
+            // 
+            this.txtEnemyHitsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.txtEnemyHitsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtEnemyHitsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnemyHitsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtEnemyHitsLabel.Location = new System.Drawing.Point(1236, 525);
+            this.txtEnemyHitsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtEnemyHitsLabel.Name = "txtEnemyHitsLabel";
+            this.txtEnemyHitsLabel.Size = new System.Drawing.Size(400, 52);
+            this.txtEnemyHitsLabel.TabIndex = 463;
+            this.txtEnemyHitsLabel.Text = "HITS";
+            this.txtEnemyHitsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtEnemyShipsSunkLabel
+            // 
+            this.txtEnemyShipsSunkLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.txtEnemyShipsSunkLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtEnemyShipsSunkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnemyShipsSunkLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtEnemyShipsSunkLabel.Location = new System.Drawing.Point(1236, 679);
+            this.txtEnemyShipsSunkLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtEnemyShipsSunkLabel.Name = "txtEnemyShipsSunkLabel";
+            this.txtEnemyShipsSunkLabel.Size = new System.Drawing.Size(400, 52);
+            this.txtEnemyShipsSunkLabel.TabIndex = 462;
+            this.txtEnemyShipsSunkLabel.Text = "SHIPS SUNK";
+            this.txtEnemyShipsSunkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // enemyHitsLabel
+            // 
+            this.enemyHitsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.enemyHitsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.enemyHitsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyHitsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.enemyHitsLabel.Location = new System.Drawing.Point(1337, 602);
+            this.enemyHitsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.enemyHitsLabel.Name = "enemyHitsLabel";
+            this.enemyHitsLabel.Size = new System.Drawing.Size(200, 52);
+            this.enemyHitsLabel.TabIndex = 461;
+            this.enemyHitsLabel.Text = "0";
+            this.enemyHitsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // enemyWinsLabel
+            // 
+            this.enemyWinsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.enemyWinsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.enemyWinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyWinsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.enemyWinsLabel.Location = new System.Drawing.Point(1337, 908);
+            this.enemyWinsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.enemyWinsLabel.Name = "enemyWinsLabel";
+            this.enemyWinsLabel.Size = new System.Drawing.Size(200, 52);
+            this.enemyWinsLabel.TabIndex = 468;
+            this.enemyWinsLabel.Text = "0";
+            this.enemyWinsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtEnemyWinsLabel
+            // 
+            this.txtEnemyWinsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.txtEnemyWinsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtEnemyWinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnemyWinsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtEnemyWinsLabel.Location = new System.Drawing.Point(1236, 833);
+            this.txtEnemyWinsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtEnemyWinsLabel.Name = "txtEnemyWinsLabel";
+            this.txtEnemyWinsLabel.Size = new System.Drawing.Size(400, 52);
+            this.txtEnemyWinsLabel.TabIndex = 467;
+            this.txtEnemyWinsLabel.Text = "WINS";
+            this.txtEnemyWinsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // playerWinsLabel
+            // 
+            this.playerWinsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.playerWinsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playerWinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerWinsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.playerWinsLabel.Location = new System.Drawing.Point(509, 908);
+            this.playerWinsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.playerWinsLabel.Name = "playerWinsLabel";
+            this.playerWinsLabel.Size = new System.Drawing.Size(200, 52);
+            this.playerWinsLabel.TabIndex = 466;
+            this.playerWinsLabel.Text = "0";
+            this.playerWinsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPlayerWinsLabel
+            // 
+            this.txtPlayerWinsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
+            this.txtPlayerWinsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtPlayerWinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlayerWinsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.txtPlayerWinsLabel.Location = new System.Drawing.Point(408, 831);
+            this.txtPlayerWinsLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPlayerWinsLabel.Name = "txtPlayerWinsLabel";
+            this.txtPlayerWinsLabel.Size = new System.Drawing.Size(400, 52);
+            this.txtPlayerWinsLabel.TabIndex = 465;
+            this.txtPlayerWinsLabel.Text = "WINS";
+            this.txtPlayerWinsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtDifficultyLabel
+            // 
+            this.txtDifficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDifficultyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.txtDifficultyLabel.Location = new System.Drawing.Point(592, 51);
+            this.txtDifficultyLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.txtDifficultyLabel.Name = "txtDifficultyLabel";
+            this.txtDifficultyLabel.Size = new System.Drawing.Size(183, 60);
+            this.txtDifficultyLabel.TabIndex = 469;
+            this.txtDifficultyLabel.Text = "DIFFICULTY:";
+            this.txtDifficultyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // difficultyLabel
+            // 
+            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.difficultyLabel.Location = new System.Drawing.Point(795, 51);
+            this.difficultyLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.difficultyLabel.Name = "difficultyLabel";
+            this.difficultyLabel.Size = new System.Drawing.Size(112, 60);
+            this.difficultyLabel.TabIndex = 470;
+            this.difficultyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // leaveButton
+            // 
+            this.leaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.leaveButton.FlatAppearance.BorderSize = 0;
+            this.leaveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.leaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.leaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.leaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.leaveButton.Location = new System.Drawing.Point(750, 12);
+            this.leaveButton.Name = "leaveButton";
+            this.leaveButton.Size = new System.Drawing.Size(500, 36);
+            this.leaveButton.TabIndex = 471;
+            this.leaveButton.Text = "LEAVE (PROGRESS WILL BE LOST)";
+            this.leaveButton.UseMnemonic = false;
+            this.leaveButton.UseVisualStyleBackColor = false;
+            this.leaveButton.Click += new System.EventHandler(this.leaveButton_Click);
+            // 
             // gameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(2000, 1100);
+            this.Controls.Add(this.leaveButton);
+            this.Controls.Add(this.youLabel);
+            this.Controls.Add(this.helpLabel);
+            this.Controls.Add(this.enemyLabel);
+            this.Controls.Add(this.txtDifficultyLabel);
             this.Controls.Add(this.J10);
             this.Controls.Add(this.J9);
             this.Controls.Add(this.J8);
@@ -3992,9 +4279,6 @@
             this.Controls.Add(this.K3);
             this.Controls.Add(this.K2);
             this.Controls.Add(this.K1);
-            this.Controls.Add(this.helpLabel);
-            this.Controls.Add(this.enemyLabel);
-            this.Controls.Add(this.youLabel);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
@@ -4036,18 +4320,35 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.letterLabel);
             this.Controls.Add(this.roundLabel);
-            this.Controls.Add(this.txtRound);
+            this.Controls.Add(this.txtRoundLabel);
             this.Controls.Add(this.timeLapseLabel);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.txtUserNameLabel);
             this.Controls.Add(this.txtTimeLapseLabel);
+            this.Controls.Add(this.pressEnterLabel);
+            this.Controls.Add(this.pressEscLabel);
+            this.Controls.Add(this.enemyShipsSunkLabel);
+            this.Controls.Add(this.txtEnemyHitsLabel);
+            this.Controls.Add(this.txtEnemyShipsSunkLabel);
+            this.Controls.Add(this.enemyHitsLabel);
+            this.Controls.Add(this.yourShipsSunkLabel);
+            this.Controls.Add(this.txtYourHitsLabel);
+            this.Controls.Add(this.txtYourShipsSunkLabel);
+            this.Controls.Add(this.yourHitsLabel);
+            this.Controls.Add(this.txtStatsEnemyLabel);
+            this.Controls.Add(this.txtStatsPlayerLabel);
+            this.Controls.Add(this.txtPlayerWinsLabel);
+            this.Controls.Add(this.playerWinsLabel);
+            this.Controls.Add(this.txtEnemyWinsLabel);
+            this.Controls.Add(this.enemyWinsLabel);
+            this.Controls.Add(this.difficultyLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gameForm";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.gameForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameForm_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4060,7 +4361,7 @@
         private System.Windows.Forms.Label txtTimeLapseLabel;
         private System.Windows.Forms.Label txtUserNameLabel;
         private System.Windows.Forms.Label timeLapseLabel;
-        private System.Windows.Forms.Label txtRound;
+        private System.Windows.Forms.Label txtRoundLabel;
         private System.Windows.Forms.Label roundLabel;
         private System.Windows.Forms.Timer timeLapseTimer;
         private System.Windows.Forms.Label letterLabel;
@@ -4307,5 +4608,24 @@
         private System.Windows.Forms.Button I2;
         private System.Windows.Forms.Button I1;
         private System.Windows.Forms.Timer waitForEnemy;
+        private System.Windows.Forms.Label txtStatsPlayerLabel;
+        private System.Windows.Forms.Label txtStatsEnemyLabel;
+        private System.Windows.Forms.Label pressEnterLabel;
+        private System.Windows.Forms.Label pressEscLabel;
+        private System.Windows.Forms.Label yourHitsLabel;
+        private System.Windows.Forms.Label txtYourShipsSunkLabel;
+        private System.Windows.Forms.Label txtYourHitsLabel;
+        private System.Windows.Forms.Label yourShipsSunkLabel;
+        private System.Windows.Forms.Label enemyShipsSunkLabel;
+        private System.Windows.Forms.Label txtEnemyHitsLabel;
+        private System.Windows.Forms.Label txtEnemyShipsSunkLabel;
+        private System.Windows.Forms.Label enemyHitsLabel;
+        private System.Windows.Forms.Label enemyWinsLabel;
+        private System.Windows.Forms.Label txtEnemyWinsLabel;
+        private System.Windows.Forms.Label playerWinsLabel;
+        private System.Windows.Forms.Label txtPlayerWinsLabel;
+        private System.Windows.Forms.Label txtDifficultyLabel;
+        private System.Windows.Forms.Label difficultyLabel;
+        private System.Windows.Forms.Button leaveButton;
     }
 }

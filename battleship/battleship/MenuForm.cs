@@ -16,6 +16,7 @@ namespace battleship
         private string userName;
         private SoundPlayer mainSound;
         private int counter;
+        string difficulty;
         public MenuForm()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace battleship
             InitializeSound();
             mainSound.PlayLooping();
             startLabel.Hide();
+            mediumButton.PerformClick();
 
         }
 
@@ -46,7 +48,12 @@ namespace battleship
 
         private void startingNow()
         {
+            playButton.Enabled = false;
+            exitButton.Enabled = false;
             errorMessage.Text = "";
+            easyButton.Visible = false;
+            mediumButton.Visible = false;
+            hardButton.Visible = false;
             startLabel.Show();
 
         }
@@ -89,14 +96,43 @@ namespace battleship
         private void startGameTimer_Tick(object sender, EventArgs e)
         {
             counter++;
-            if (counter == 1 )
+            if (counter == 2 )
             {
                 startGameTimer.Stop();
                 mainSound.Stop();
                 this.Close();
-                gameForm gameform = new gameForm(userName);
+                gameForm gameform = new gameForm(userName, difficulty);
                 gameform.Show();
             }
+        }
+
+        private void easyButton_Click(object sender, EventArgs e)
+        {
+            difficulty = "Easy";
+            clearButtons();
+            easyButton.BackColor = Color.FromArgb(15, 20, 50);
+        }
+
+        private void mediumButton_Click(object sender, EventArgs e)
+        {
+            difficulty = "Medium";
+            clearButtons();
+            mediumButton.BackColor = Color.FromArgb(15, 20, 50);
+
+        }
+
+        private void hardButton_Click(object sender, EventArgs e)
+        {
+            difficulty = "Hard";
+            clearButtons();
+            hardButton.BackColor = Color.FromArgb(15, 20, 50);
+        }
+
+        private void clearButtons()
+        {
+            easyButton.BackColor = Color.FromArgb(40, 40, 70);
+            mediumButton.BackColor = Color.FromArgb(40, 40, 70);
+            hardButton.BackColor = Color.FromArgb(40, 40, 70);
         }
     }
 }

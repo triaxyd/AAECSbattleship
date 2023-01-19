@@ -35,24 +35,26 @@
             this.welcomeText = new System.Windows.Forms.Label();
             this.txtEnterName = new System.Windows.Forms.Label();
             this.errorMessage = new System.Windows.Forms.Label();
-            this.startLabel = new System.Windows.Forms.Label();
             this.startGameTimer = new System.Windows.Forms.Timer(this.components);
+            this.startLabel = new System.Windows.Forms.Label();
+            this.easyButton = new System.Windows.Forms.Button();
+            this.mediumButton = new System.Windows.Forms.Button();
+            this.hardButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(150)))));
             this.exitButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.exitButton.FlatAppearance.BorderSize = 0;
             this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(130)))));
             this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
-            this.exitButton.Location = new System.Drawing.Point(0, 673);
+            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.exitButton.Location = new System.Drawing.Point(0, 681);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(1300, 77);
-            this.exitButton.TabIndex = 2;
+            this.exitButton.Size = new System.Drawing.Size(1300, 69);
+            this.exitButton.TabIndex = 5;
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -65,10 +67,10 @@
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.playButton.Location = new System.Drawing.Point(0, 477);
+            this.playButton.Location = new System.Drawing.Point(0, 505);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(1300, 100);
-            this.playButton.TabIndex = 1;
+            this.playButton.Size = new System.Drawing.Size(1300, 86);
+            this.playButton.TabIndex = 4;
             this.playButton.Text = "PLAY";
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
@@ -124,29 +126,77 @@
             this.errorMessage.TabIndex = 5;
             this.errorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // startLabel
-            // 
-            this.startLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.startLabel.Location = new System.Drawing.Point(0, 353);
-            this.startLabel.Name = "startLabel";
-            this.startLabel.Size = new System.Drawing.Size(1300, 106);
-            this.startLabel.TabIndex = 6;
-            this.startLabel.Text = "STARTING GAME...";
-            this.startLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // startGameTimer
             // 
             this.startGameTimer.Interval = 1000;
             this.startGameTimer.Tick += new System.EventHandler(this.startGameTimer_Tick);
             // 
+            // startLabel
+            // 
+            this.startLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.startLabel.Location = new System.Drawing.Point(0, 322);
+            this.startLabel.Name = "startLabel";
+            this.startLabel.Size = new System.Drawing.Size(1300, 106);
+            this.startLabel.TabIndex = 6;
+            this.startLabel.Text = "STARTING GAME";
+            this.startLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // easyButton
+            // 
+            this.easyButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.easyButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
+            this.easyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.easyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.easyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.easyButton.Location = new System.Drawing.Point(320, 353);
+            this.easyButton.Name = "easyButton";
+            this.easyButton.Size = new System.Drawing.Size(165, 67);
+            this.easyButton.TabIndex = 1;
+            this.easyButton.Text = "EASY";
+            this.easyButton.UseVisualStyleBackColor = true;
+            this.easyButton.Click += new System.EventHandler(this.easyButton_Click);
+            // 
+            // mediumButton
+            // 
+            this.mediumButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.mediumButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
+            this.mediumButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mediumButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediumButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.mediumButton.Location = new System.Drawing.Point(568, 353);
+            this.mediumButton.Name = "mediumButton";
+            this.mediumButton.Size = new System.Drawing.Size(165, 67);
+            this.mediumButton.TabIndex = 2;
+            this.mediumButton.Text = "MEDIUM";
+            this.mediumButton.UseVisualStyleBackColor = true;
+            this.mediumButton.Click += new System.EventHandler(this.mediumButton_Click);
+            // 
+            // hardButton
+            // 
+            this.hardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
+            this.hardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
+            this.hardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hardButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.hardButton.Location = new System.Drawing.Point(816, 353);
+            this.hardButton.Name = "hardButton";
+            this.hardButton.Size = new System.Drawing.Size(165, 67);
+            this.hardButton.TabIndex = 3;
+            this.hardButton.Text = "HARD";
+            this.hardButton.UseVisualStyleBackColor = true;
+            this.hardButton.Click += new System.EventHandler(this.hardButton_Click);
+            // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(1300, 750);
+            this.Controls.Add(this.hardButton);
+            this.Controls.Add(this.mediumButton);
+            this.Controls.Add(this.easyButton);
             this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.txtEnterName);
             this.Controls.Add(this.welcomeText);
@@ -158,7 +208,6 @@
             this.Name = "MenuForm";
             this.Opacity = 0.99D;
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.menuForm_Load);
@@ -175,8 +224,11 @@
         private System.Windows.Forms.Label welcomeText;
         private System.Windows.Forms.Label txtEnterName;
         private System.Windows.Forms.Label errorMessage;
-        private System.Windows.Forms.Label startLabel;
         private System.Windows.Forms.Timer startGameTimer;
+        private System.Windows.Forms.Label startLabel;
+        private System.Windows.Forms.Button easyButton;
+        private System.Windows.Forms.Button mediumButton;
+        private System.Windows.Forms.Button hardButton;
     }
 }
 

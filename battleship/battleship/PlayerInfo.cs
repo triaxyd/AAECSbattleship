@@ -8,32 +8,20 @@ namespace battleship
 {
     class PlayerInfo
     {
-        private string playerName;
-        private int timeLapse;
-        private int playerTries;
+        public string playerName { get; set; }
+        public string playerDifficulty { get; set; }
+        public int playerWins { get; set; }
+        public int playerLoses { get; set; }
 
-        public PlayerInfo(string name)
+        public PlayerInfo(string name, string difficulty)
         {
             playerName = name;
+            playerDifficulty = difficulty;
+            playerWins = 0;
+            playerLoses = 0;
         }
 
-        public string PlayerName
-        {
-            get { return playerName; }  
-            set { playerName = value; }
-        }
-
-        public int TimeLapse
-        {
-            get { return timeLapse; }
-            set { timeLapse = value; }
-        }
-
-        public int PlayerTries
-        {
-            get { return playerTries; }
-            set { playerTries = value; }
-        }
+        
 
     }
 }

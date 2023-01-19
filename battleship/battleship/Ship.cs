@@ -27,19 +27,19 @@ namespace battleship
             Hits = 0;
             if (Name == "AirCraft")
             {
-                Color = Color.FromArgb(240, 150, 150);
+                Color = Color.FromArgb(165, 15, 140);
             }
             else if(Name == "Destroyer")
             {
-                Color = Color.FromArgb(210, 135, 235);
+                Color = Color.FromArgb(15, 50, 160);
             }
             else if(Name == "Military")
             {
-                Color = Color.FromArgb(150,255,255);
+                Color = Color.FromArgb(50,180,15);
             }
             else
             {
-                Color = Color.FromArgb(245,200,135);
+                Color = Color.FromArgb(255,190,5);
             }
         }
     }
