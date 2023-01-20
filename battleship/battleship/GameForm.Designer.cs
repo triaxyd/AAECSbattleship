@@ -317,7 +317,7 @@
             // 
             this.txtTimeLapseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeLapseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.txtTimeLapseLabel.Location = new System.Drawing.Point(1157, 51);
+            this.txtTimeLapseLabel.Location = new System.Drawing.Point(1119, 51);
             this.txtTimeLapseLabel.Margin = new System.Windows.Forms.Padding(10);
             this.txtTimeLapseLabel.Name = "txtTimeLapseLabel";
             this.txtTimeLapseLabel.Size = new System.Drawing.Size(188, 60);
@@ -341,7 +341,7 @@
             // 
             this.timeLapseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLapseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.timeLapseLabel.Location = new System.Drawing.Point(1365, 51);
+            this.timeLapseLabel.Location = new System.Drawing.Point(1327, 51);
             this.timeLapseLabel.Margin = new System.Windows.Forms.Padding(10);
             this.timeLapseLabel.Name = "timeLapseLabel";
             this.timeLapseLabel.Size = new System.Drawing.Size(112, 60);
@@ -3802,7 +3802,7 @@
             // 
             // waitForEnemy
             // 
-            this.waitForEnemy.Interval = 2000;
+            this.waitForEnemy.Interval = 500;
             this.waitForEnemy.Tick += new System.EventHandler(this.waitForEnemy_Tick);
             // 
             // txtStatsPlayerLabel
@@ -4057,13 +4057,13 @@
             this.leaveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.leaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
             this.leaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.leaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leaveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(65)))));
-            this.leaveButton.Location = new System.Drawing.Point(750, 12);
+            this.leaveButton.Location = new System.Drawing.Point(800, 12);
             this.leaveButton.Name = "leaveButton";
-            this.leaveButton.Size = new System.Drawing.Size(500, 36);
+            this.leaveButton.Size = new System.Drawing.Size(400, 36);
             this.leaveButton.TabIndex = 471;
-            this.leaveButton.Text = "LEAVE (PROGRESS WILL BE LOST)";
+            this.leaveButton.Text = "MENU (PROGRESS WILL BE LOST)";
             this.leaveButton.UseMnemonic = false;
             this.leaveButton.UseVisualStyleBackColor = false;
             this.leaveButton.Click += new System.EventHandler(this.leaveButton_Click);
@@ -4345,6 +4345,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gameForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.gameForm_Load);

@@ -48,8 +48,8 @@ namespace battleship
 
         private void startingNow()
         {
-            playButton.Enabled = false;
-            exitButton.Enabled = false;
+            playButton.Visible = false;
+            exitButton.Visible = false;
             errorMessage.Text = "";
             easyButton.Visible = false;
             mediumButton.Visible = false;
@@ -108,14 +108,14 @@ namespace battleship
 
         private void easyButton_Click(object sender, EventArgs e)
         {
-            difficulty = "Easy";
+            difficulty = "EASY";
             clearButtons();
             easyButton.BackColor = Color.FromArgb(15, 20, 50);
         }
 
         private void mediumButton_Click(object sender, EventArgs e)
         {
-            difficulty = "Medium";
+            difficulty = "MEDIUM";
             clearButtons();
             mediumButton.BackColor = Color.FromArgb(15, 20, 50);
 
@@ -123,7 +123,7 @@ namespace battleship
 
         private void hardButton_Click(object sender, EventArgs e)
         {
-            difficulty = "Hard";
+            difficulty = "HARD";
             clearButtons();
             hardButton.BackColor = Color.FromArgb(15, 20, 50);
         }

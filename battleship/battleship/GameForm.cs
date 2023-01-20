@@ -53,13 +53,13 @@ namespace battleship
         {
 
             player = new PlayerInfo(userName,usrDifficulty);
-            userNameLabel.Text = player.playerName;
-            difficultyLabel.Text = player.playerDifficulty;
-            if (player.playerDifficulty == "Easy")
+            userNameLabel.Text = player.PlayerName;
+            difficultyLabel.Text = player.PlayerDifficulty;
+            if (player.PlayerDifficulty == "EASY")
             {
                 randomForDifficulty = 5;
             }
-            else if (player.playerDifficulty == "Medium")
+            else if (player.PlayerDifficulty == "MEDIUM")
             {
                 randomForDifficulty = 4;
             }
@@ -99,7 +99,7 @@ namespace battleship
                 enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
                 enemyLabel.ForeColor = Color.FromArgb(220, 220, 255);
                 helpLabel.Text = "ENEMY WON!";
-                player.playerLoses++;
+                player.PlayerLoses++;
                 endGame();
                 
 
@@ -113,8 +113,8 @@ namespace battleship
                 youLabel.ForeColor = Color.FromArgb(220, 220, 250);
                 enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
                 enemyLabel.ForeColor = Color.FromArgb(220, 220, 255);
-                helpLabel.Text = "YOU WON! CONGRATULATIONS " + player.playerName;
-                player.playerWins++;
+                helpLabel.Text = "YOU WON! CONGRATULATIONS " + player.PlayerName;
+                player.PlayerWins++;
                 endGame();
             }  
         }
@@ -214,21 +214,6 @@ namespace battleship
         }
 
 
-        private void gameForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (gameOver == true && e.KeyCode == Keys.Enter)
-            {
-                resetGame();
-            }
-
-            if( gameOver == true && e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-                MenuForm menuForm = new MenuForm();
-                menuForm.Show();
-            }
-        }
-
         private void endGame()  //(when game ends) stop timers and display the end menu, user presses buttons to proceed
         {
             gameOver = true;
@@ -269,8 +254,32 @@ namespace battleship
             enemyShipsSunkLabel.Text = numOfSunkEnemy.ToString();
             yourHitsLabel.Text = playerHits.ToString();
             enemyHitsLabel.Text = enemyHits.ToString();
-            playerWinsLabel.Text = player.playerWins.ToString();
-            enemyWinsLabel.Text = player.playerLoses.ToString();
+            playerWinsLabel.Text = player.PlayerWins.ToString();
+            enemyWinsLabel.Text = player.PlayerLoses.ToString();
+            if ((player.PlayerWins==1 && player.PlayerLoses==0) || (player.PlayerWins==0 && player.PlayerLoses == 1))
+            {
+                player.AverageRounds = round;
+            }
+            else
+            {
+                player.AverageRounds = (player.AverageRounds + round) / 2;
+            }
+        }
+
+        private void gameForm_KeyUp(object sender, KeyEventArgs e)  //(Play Again)
+        {
+            if (gameOver == true && e.KeyCode == Keys.Enter)
+            {
+                resetGame();
+            }
+
+            if (gameOver == true && e.KeyCode == Keys.Escape)   //(Go to Menu)
+            {
+                SqliteDataAccess.AddPlayer(player); 
+                this.Close();
+                MenuForm menuForm = new MenuForm();
+                menuForm.Show();
+            }
         }
 
 
