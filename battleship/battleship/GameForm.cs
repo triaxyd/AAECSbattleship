@@ -133,7 +133,7 @@ namespace battleship
             helpLabel.ForeColor = Color.White;
             helpLabel.BackColor = Color.FromArgb(30,35,65);
             helpLabel.Text = "ENEMY IS CHOOSING...";
-            if (waiting % 2 ==0 && gameOver == false)
+            if (waiting % 2 == 0 && gameOver == false)
             {
                 waitForEnemy.Stop();
                 enemyMoves();
@@ -501,9 +501,9 @@ namespace battleship
                 }
             }
             
-            enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
+            enemyLabel.BackColor = Color.FromArgb(30, 35, 65);  //change color of labels
             youLabel.BackColor = Color.FromArgb(65, 70, 110);
-            waiting = 0;
+            waiting = 0;    //waiting for opponent to play , CHANGE WAITFORENEMY TIMER FOR FASTER OR SLOWER WAITING
             foreach(Button btn in this.Controls.OfType<Button>())
             {
                 btn.Enabled = false;
@@ -517,14 +517,14 @@ namespace battleship
 
 
 
-        private void enemyMoves()   //(Auto user Pick)
+        private void enemyMoves()   //(Enemy playing function)
         {
             enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
             youLabel.BackColor = Color.FromArgb(65,70,110);
             Label lbl = new Label();
             int row=0;
             int col=0;
-            if (enemyMissedTries == randomForDifficulty)  //(Buffer for enemy) :)
+            if (enemyMissedTries == randomForDifficulty)  //(Difficulty for enemy),based on difficulty if he missed then find a ship coordinate and hit it manually :)
             {
                 enemyMissedTries = 0;
                 int rndShip = random.Next(4);
@@ -559,7 +559,7 @@ namespace battleship
 
 
 
-            }
+            }       //else just pick a random coordinate
             else
             {
                 row = random.Next(0, 10);
@@ -578,10 +578,10 @@ namespace battleship
                     lbl = tempLbl;
                 }
             }
-            previousTriesEnemy[row, col] = 1;
+            previousTriesEnemy[row, col] = 1;   //make the row,col coordinates unavailable 
 
             
-            if (emptyBoxesPlayer[row, col] == 0)
+            if (emptyBoxesPlayer[row, col] == 0)    //if the emptyBoxesPlayer in the row, col coordinates is 0 then no ship was hit 
             {
 
                 helpLabel.ForeColor = Color.FromArgb(30, 35, 65);
@@ -590,7 +590,7 @@ namespace battleship
                 enemyMissedTries++;
                 lbl.Text = "^";
 
-            }
+            }   //else it was hit
             else
             {
                 helpLabel.BackColor = Color.FromArgb(50, 10, 10);
@@ -601,7 +601,7 @@ namespace battleship
                 sumShipSizesPlayer--;
                 lbl.Text = "^";
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++) //Check if a ship has sunk
             {
                 for (int j = 0; j < playerShips[i].Size; j++)
                 {
@@ -638,7 +638,7 @@ namespace battleship
                 }
             }
 
-            foreach (Button btn in this.Controls.OfType<Button>())
+            foreach (Button btn in this.Controls.OfType<Button>())  //make buttons that user didnt click on available again
             {
                 if (btn.Name == "leaveButton")
                 {

@@ -14,6 +14,10 @@ namespace battleship
         public int PlayerLoses { get; set; }
         public int AverageRounds { get; set; }
 
+        public PlayerInfo() //default constructor
+        {
+
+        }
         public PlayerInfo(string name, string difficulty)
         {
             PlayerName = name;

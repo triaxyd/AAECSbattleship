@@ -3802,7 +3802,7 @@
             // 
             // waitForEnemy
             // 
-            this.waitForEnemy.Interval = 2000;
+            this.waitForEnemy.Interval = 1000;
             this.waitForEnemy.Tick += new System.EventHandler(this.waitForEnemy_Tick);
             // 
             // txtStatsPlayerLabel

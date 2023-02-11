@@ -12,14 +12,15 @@ namespace battleship
 {
     public class SqliteDataAccess
     {
-        /*public static List<PlayerInfo> LoadPlayers()
+        
+        public static List<PlayerInfo> LoadPlayers()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<PlayerInfo>("select * from Player", new DynamicParameters());
+                var output = cnn.Query<PlayerInfo>("SELECT * FROM Player", new DynamicParameters());
                 return output.ToList();
             }
-        } */
+        } 
 
         public static void AddPlayer(PlayerInfo player)
         {

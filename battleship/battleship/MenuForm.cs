@@ -49,7 +49,9 @@ namespace battleship
         private void startingNow()
         {
             playButton.Visible = false;
+            statsButton.Visible = false;
             exitButton.Visible = false;
+            userNameTextBox.Enabled = false;
             errorMessage.Text = "";
             easyButton.Visible = false;
             mediumButton.Visible = false;
@@ -133,6 +135,14 @@ namespace battleship
             easyButton.BackColor = Color.FromArgb(40, 40, 70);
             mediumButton.BackColor = Color.FromArgb(40, 40, 70);
             hardButton.BackColor = Color.FromArgb(40, 40, 70);
+        }
+
+        private void statsButton_Click(object sender, EventArgs e)
+        {
+            mainSound.Stop();
+            this.Close();
+            StatsForm statsForm = new StatsForm();
+            statsForm.Show();
         }
     }
 }

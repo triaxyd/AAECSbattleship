@@ -16,3 +16,4 @@ C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.csproj.Co
 C:\Users\trian\source\repos\battleship\battleship\bin\Debug\playersDB.db
 C:\Users\trian\source\repos\battleship\battleship\bin\Debug\Dapper.dll
 C:\Users\trian\source\repos\battleship\battleship\bin\Debug\Dapper.xml
+C:\Users\trian\source\repos\battleship\battleship\obj\Debug\battleship.StatsForm.resources
