@@ -299,6 +299,7 @@
             this.txtDifficultyLabel = new System.Windows.Forms.Label();
             this.difficultyLabel = new System.Windows.Forms.Label();
             this.leaveButton = new System.Windows.Forms.Button();
+            this.lostDisplayShipsTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -503,7 +504,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label9.Location = new System.Drawing.Point(805, 224);
+            this.label9.Location = new System.Drawing.Point(807, 224);
             this.label9.Margin = new System.Windows.Forms.Padding(20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 37);
@@ -539,7 +540,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label13.Location = new System.Drawing.Point(643, 224);
+            this.label13.Location = new System.Drawing.Point(642, 224);
             this.label13.Margin = new System.Windows.Forms.Padding(20);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(35, 37);
@@ -551,7 +552,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label14.Location = new System.Drawing.Point(566, 224);
+            this.label14.Location = new System.Drawing.Point(568, 224);
             this.label14.Margin = new System.Windows.Forms.Padding(20);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 37);
@@ -563,7 +564,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label15.Location = new System.Drawing.Point(488, 224);
+            this.label15.Location = new System.Drawing.Point(491, 224);
             this.label15.Margin = new System.Windows.Forms.Padding(20);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(35, 37);
@@ -599,7 +600,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label18.Location = new System.Drawing.Point(250, 224);
+            this.label18.Location = new System.Drawing.Point(252, 224);
             this.label18.Margin = new System.Windows.Forms.Padding(20);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(35, 37);
@@ -611,7 +612,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label19.Location = new System.Drawing.Point(171, 224);
+            this.label19.Location = new System.Drawing.Point(172, 224);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(33, 37);
@@ -635,7 +636,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label21.Location = new System.Drawing.Point(1854, 224);
+            this.label21.Location = new System.Drawing.Point(1853, 224);
             this.label21.Margin = new System.Windows.Forms.Padding(20);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(51, 37);
@@ -659,7 +660,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label23.Location = new System.Drawing.Point(1617, 224);
+            this.label23.Location = new System.Drawing.Point(1620, 224);
             this.label23.Margin = new System.Windows.Forms.Padding(20);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(35, 37);
@@ -671,7 +672,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label24.Location = new System.Drawing.Point(1540, 224);
+            this.label24.Location = new System.Drawing.Point(1541, 224);
             this.label24.Margin = new System.Windows.Forms.Padding(20);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(35, 37);
@@ -683,7 +684,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label25.Location = new System.Drawing.Point(1462, 224);
+            this.label25.Location = new System.Drawing.Point(1463, 224);
             this.label25.Margin = new System.Windows.Forms.Padding(20);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(35, 37);
@@ -695,7 +696,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label26.Location = new System.Drawing.Point(1382, 224);
+            this.label26.Location = new System.Drawing.Point(1381, 224);
             this.label26.Margin = new System.Windows.Forms.Padding(20);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(35, 37);
@@ -707,7 +708,7 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.label27.Location = new System.Drawing.Point(1302, 224);
+            this.label27.Location = new System.Drawing.Point(1303, 224);
             this.label27.Margin = new System.Windows.Forms.Padding(20);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(35, 37);
@@ -3802,7 +3803,7 @@
             // 
             // waitForEnemy
             // 
-            this.waitForEnemy.Interval = 1000;
+            this.waitForEnemy.Interval = 2000;
             this.waitForEnemy.Tick += new System.EventHandler(this.waitForEnemy_Tick);
             // 
             // txtStatsPlayerLabel
@@ -4067,6 +4068,11 @@
             this.leaveButton.UseMnemonic = false;
             this.leaveButton.UseVisualStyleBackColor = false;
             this.leaveButton.Click += new System.EventHandler(this.leaveButton_Click);
+            // 
+            // lostDisplayShipsTimer
+            // 
+            this.lostDisplayShipsTimer.Interval = 1000;
+            this.lostDisplayShipsTimer.Tick += new System.EventHandler(this.lostDisplayShipsTimer_Tick);
             // 
             // gameForm
             // 
@@ -4357,7 +4363,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label usrName;
+        //private System.Windows.Forms.Label usrName;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Label txtTimeLapseLabel;
         private System.Windows.Forms.Label txtUserNameLabel;
@@ -4628,5 +4634,6 @@
         private System.Windows.Forms.Label txtDifficultyLabel;
         private System.Windows.Forms.Label difficultyLabel;
         private System.Windows.Forms.Button leaveButton;
+        private System.Windows.Forms.Timer lostDisplayShipsTimer;
     }
 }

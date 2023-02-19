@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -21,111 +22,79 @@ namespace battleship
     
     public partial class gameForm : Form
     {
-        PlayerInfo player;
-        char[] ajChars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
-        char[] ktChars = { 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T' };
-        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        string[,] setBoxesPlayer = new string[10, 10];
-        string[,] setBoxesEnemy = new string[10, 10];
-        int[,] emptyBoxesPlayer = new int[10, 10];
-        int[,] emptyBoxesEnemy = new int[10, 10];
-        int[,] previousTriesEnemy = new int[10, 10];
-        int[,] previousTriesPlayer = new int[10, 10];
-        Ship[] playerShips = new Ship[4];
-        Ship[] enemyShips = new Ship[4];
-
-
-
+        private SoundPlayer JWin, JLose, JHit, JSunk;
+        PlayerInfo player;  //player declaration
+        char[] ajChars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };  //a-j chars
+        char[] ktChars = { 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T' };  //k-t chars 
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };  //nums
+        string[,] setBoxesPlayer = new string[10, 10];  //kt-1 10
+        string[,] setBoxesEnemy = new string[10, 10];   //a-j 1 10
+        int[,] emptyBoxesPlayer = new int[10, 10];  //boxes that have ship
+        int[,] emptyBoxesEnemy = new int[10, 10];   //boxes that have ship, either 0 or 1
+        int[,] previousTriesEnemy = new int[10, 10];    //where enemy randomly picked a box 
+        int[,] previousTriesPlayer = new int[10, 10];   //where player clicked a box
+        Ship[] playerShips = new Ship[4];   //playerShips array of ships objects of size 4
+        Ship[] enemyShips = new Ship[4];    //enemyShips array with 4 ships
         Random random = new Random();
 
         bool gameOver;
         private string userName,usrDifficulty;
-        private int timeLapse,round,sumShipSizesPlayer,sumShipSizesEnemy,enemyHits,playerHits,waiting,numOfSunkPlayer,numOfSunkEnemy,enemyMissedTries,randomForDifficulty;
+        private int timeLapse,secondsLost10,round,sumShipSizesPlayer,sumShipSizesEnemy,enemyHits,playerHits,waiting,numOfSunkPlayer,numOfSunkEnemy,enemyMissedTries,randomForDifficulty;
 
-        public gameForm(string usrInput, string difficulty)
+        public gameForm(string usrInput, string difficulty)     //get name and difficulty from menu form
         {
             userName = usrInput;
             usrDifficulty = difficulty;
             InitializeComponent();
         }
 
+
         private void gameForm_Load(object sender, EventArgs e)  //(game form load), create player object, set player wins and loses to 0, create the game table and reset game. 
         {
-
+            initializeSounds();
             player = new PlayerInfo(userName,usrDifficulty);
             userNameLabel.Text = player.PlayerName;
             difficultyLabel.Text = player.PlayerDifficulty;
             if (player.PlayerDifficulty == "EASY")
             {
-                randomForDifficulty = 5;
+                randomForDifficulty = 4;
             }
             else if (player.PlayerDifficulty == "MEDIUM")
             {
-                randomForDifficulty = 4;
+                randomForDifficulty = 3;
             }
             else
             {
-                randomForDifficulty = 3;
+                randomForDifficulty = 2;
             }
             createTable();
             resetGame();
         }
 
-        private void createTable()  //set the game table in 2d arrays for player and enemy
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    setBoxesPlayer[i, j] = ktChars[i].ToString() + numbers[j].ToString();
-                    setBoxesEnemy[i, j] = ajChars[i].ToString() + numbers[j].ToString();
-                }
-            }
-        }
 
 
+        //TIMERS
         private void timeLapseTimer_Tick(object sender, EventArgs e)    //(game timer), display time,round, check if number of ships is 0 => endgame() and increase counter.
         {
             timeLapse += 1;
             timeLapseLabel.Text = timeLapse.ToString();
             roundLabel.Text = round.ToString();
-
-            if (sumShipSizesPlayer == 0)
-            {
-                helpLabel.ForeColor = Color.FromArgb(220, 220, 250);
-                helpLabel.BackColor = Color.FromArgb(100, 50, 50);
-                youLabel.BackColor = Color.FromArgb(30, 35, 65);
-                youLabel.ForeColor = Color.FromArgb(220, 220, 250);
-                enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
-                enemyLabel.ForeColor = Color.FromArgb(220, 220, 255);
-                helpLabel.Text = "ENEMY WON!";
-                player.PlayerLoses++;
-                endGame();
-                
-
-           
-            }
-            else if(sumShipSizesEnemy == 0)  
-            { 
-                helpLabel.ForeColor = Color.FromArgb(220,220,250);
-                helpLabel.BackColor = Color.FromArgb(50,100,50);
-                youLabel.BackColor = Color.FromArgb(30, 35, 65); 
-                youLabel.ForeColor = Color.FromArgb(220, 220, 250);
-                enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
-                enemyLabel.ForeColor = Color.FromArgb(220, 220, 255);
-                helpLabel.Text = "YOU WON! CONGRATULATIONS " + player.PlayerName;
-                player.PlayerWins++;
-                endGame();
-            }  
         }
 
 
-        private void leaveButton_Click(object sender, EventArgs e)
+        private void lostDisplayShipsTimer_Tick(object sender, EventArgs e)
         {
-            this.Close();
-            MenuForm menuForm = new MenuForm();
-            menuForm.Show();
+            secondsLost10++;
+            helpLabel.Text = "ENEMY WON! GAME STATS IN: " + (10-secondsLost10).ToString();
+            if (secondsLost10 == 10)
+            {
+                helpLabel.Text = "ENEMY WON!";
+                lostDisplayShipsTimer.Stop();
+                endGame();
+            }
         }
+
+        
 
         private void waitForEnemy_Tick(object sender, EventArgs e)  //(timer that starts when user picks a button) , when waiting%2==0 => enemyMoves()- enemy plays automatically 
         {
@@ -142,11 +111,46 @@ namespace battleship
 
 
 
+        //FUNCTIONS
+        private void initializeSounds()
+        {
+            JWin = new SoundPlayer("JohnWin.wav");
+            JLose = new SoundPlayer("JohnLose.wav");
+            JHit = new SoundPlayer("JohnHit.wav");
+            JSunk = new SoundPlayer("JohnSunk.wav");
+        }
+
+
+
+        private void createTable()  //set the game table in 2d arrays for player and enemy
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    setBoxesPlayer[i, j] = ktChars[i].ToString() + numbers[j].ToString();
+                    setBoxesEnemy[i, j] = ajChars[i].ToString() + numbers[j].ToString();
+                }
+            }
+        }
+
+
+
+        private void leaveButton_Click(object sender, EventArgs e)  //leave Game
+        {
+            this.Close();
+            MenuForm menuForm = new MenuForm();
+            menuForm.Show();
+        }
+
+
+
         private void resetGame()    //reset the game, set all game variables to starting values, display the buttons and labels needed and start game timer.
         {
             gameOver = false;
             round = 0;
             timeLapse = 0;
+            secondsLost10 = 0;
             playerHits = 0;
             enemyHits = 0;
             sumShipSizesEnemy = 0;
@@ -160,58 +164,82 @@ namespace battleship
             {
                 btn.Visible = true;
                 btn.Enabled = true;
-                btn.BackColor = Color.FromArgb(220,220,255);
+                btn.BackColor = Color.FromArgb(220, 220, 255);
             }
             foreach (Label lbl in this.Controls.OfType<Label>())
             {
                 lbl.Visible = true;
-                if (lbl.Name == "txtStatsPlayerLabel" || lbl.Name == "txtStatsEnemy" || lbl.Name =="pressEnterLabel" 
-                    || lbl.Name =="pressEscLabel" || lbl.Name == "txtStatsPlayerLabel" 
-                    || lbl.Name =="txtStatsEnemyLabel" || lbl.Name == "txtYourHitsLabel" || lbl.Name == "yourHitsLabel" 
-                    || lbl.Name =="txtYourShipsSunkLabel" || lbl.Name == "yourShipsSunkLabel" || lbl.Name == "txtEnemyHitsLabel"|| lbl.Name == "enemyHitsLabel" 
-                    || lbl.Name =="txtEnemyShipsSunkLabel" || lbl.Name == "enemyShipsSunkLabel" || lbl.Name =="txtPlayerWinsLabel" || lbl.Name=="playerWinsLabel" 
-                    || lbl.Name =="txtEnemyWinsLabel" || lbl.Name == "enemyWinsLabel")
+                if (lbl.Name == "txtStatsPlayerLabel" || lbl.Name == "txtStatsEnemy" || lbl.Name == "pressEnterLabel"
+                    || lbl.Name == "pressEscLabel" || lbl.Name == "txtStatsPlayerLabel"
+                    || lbl.Name == "txtStatsEnemyLabel" || lbl.Name == "txtYourHitsLabel" || lbl.Name == "yourHitsLabel"
+                    || lbl.Name == "txtYourShipsSunkLabel" || lbl.Name == "yourShipsSunkLabel" || lbl.Name == "txtEnemyHitsLabel" || lbl.Name == "enemyHitsLabel"
+                    || lbl.Name == "txtEnemyShipsSunkLabel" || lbl.Name == "enemyShipsSunkLabel" || lbl.Name == "txtPlayerWinsLabel" || lbl.Name == "playerWinsLabel"
+                    || lbl.Name == "txtEnemyWinsLabel" || lbl.Name == "enemyWinsLabel")
                 {
                     lbl.Visible = false;
                 }
-                for (int i=0; i < 10; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    for (int j=0; j < 10; j++)
+                    for (int j = 0; j < 10; j++)
                     {
                         if (lbl.Name == setBoxesPlayer[i, j])
                         {
                             lbl.BackColor = Color.FromArgb(220, 220, 255);
                             lbl.Text = "";
                         }
-                        if(lbl.Name == "youLabel")
+                        if (lbl.Name == "youLabel")
                         {
                             lbl.BackColor = Color.FromArgb(30, 35, 65);
                         }
-                        if(lbl.Name == "helpLabel")
+                        if (lbl.Name == "helpLabel")
                         {
                             lbl.BackColor = Color.FromArgb(30, 35, 65);
                         }
-                        if(lbl.Name == "enemyLabel")
+                        if (lbl.Name == "enemyLabel")
                         {
                             lbl.BackColor = Color.FromArgb(65, 70, 110);
                         }
-                        
+
                     }
                 }
             }
             emptyBoxes();
-            setPlayer(); 
+            setPlayer();
             setEnemy();
-
-            for (int i=0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 sumShipSizesPlayer += playerShips[i].Size;
                 sumShipSizesEnemy += enemyShips[i].Size;
             }
-            youLabel.BackColor = Color.FromArgb(30,35,65);
+            youLabel.BackColor = Color.FromArgb(30, 35, 65);
             helpLabel.Text = "YOU PLAY FIRST!";
 
         }
+
+
+
+        private void lostGame()     //display enemy ships when player loses
+        {
+            JLose.Play();   //SOUND
+            lostDisplayShipsTimer.Start();
+            timeLapseTimer.Stop();
+            waitForEnemy.Stop();
+            foreach (Button btn in this.Controls.OfType<Button>())
+            {
+                btn.Enabled = false;
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (emptyBoxesEnemy[i, j] == 1 && previousTriesPlayer[i, j] == 0 && setBoxesEnemy[i, j] == btn.Name)
+                        {
+                            btn.BackColor = Color.FromArgb(30, 10, 10);
+                        }
+                    }
+                }
+            }
+        }
+
 
 
         private void endGame()  //(when game ends) stop timers and display the end menu, user presses buttons to proceed
@@ -241,15 +269,17 @@ namespace battleship
             }
             for (int i=0; i<4; i++) //Increase sunk ships Label
             {
-                if (enemyShips[i].isSunk)
+                if (enemyShips[i].IsSunk)
                 {
                     numOfSunkPlayer++;
                 }
-                if (playerShips[i].isSunk)
+                if (playerShips[i].IsSunk)
                 {
                     numOfSunkEnemy++;
                 }
             }
+            youLabel.BackColor = Color.FromArgb(30, 35, 65);
+            enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
             yourShipsSunkLabel.Text = numOfSunkPlayer.ToString();
             enemyShipsSunkLabel.Text = numOfSunkEnemy.ToString();
             yourHitsLabel.Text = playerHits.ToString();
@@ -265,6 +295,8 @@ namespace battleship
                 player.AverageRounds = (player.AverageRounds + round) / 2;
             }
         }
+
+
 
         private void gameForm_KeyUp(object sender, KeyEventArgs e)  //(Play Again)
         {
@@ -306,7 +338,6 @@ namespace battleship
             playerShips[1] = new Ship("Destroyer", 4);
             playerShips[2] = new Ship("Military", 3);
             playerShips[3] = new Ship("SubMarine", 2);
-
             randomPickPlayer();
         }
 
@@ -317,18 +348,15 @@ namespace battleship
             enemyShips[2] = new Ship("Military", 3);
             enemyShips[3] = new Ship("SubMarine", 2);
             randomPickEnemy();
-
         }
 
         
 
         private void randomPickEnemy()  //(Random Pick of ship positions for enemy)
         {
-
             for (int i = 0; i < enemyShips.Length; i++) //Go through every ship of enemyShips
             {
                 bool validPosition = false;
-
                 while (!validPosition)
                 {
                     enemyShips[i].IsVertical = random.Next(2) == 0; //Random Orientation 
@@ -344,7 +372,6 @@ namespace battleship
                     }
 
                     validPosition = true;
-
                     for (int j = 0; j < enemyShips[i].Size; j++)     //Go and set boxes for every ship.
                     {
                         int tempRow = enemyShips[i].IsVertical ? enemyShips[i].Row + j : enemyShips[i].Row;  //if isVertical => temprow increase for y axis , else temprow stays the same
@@ -375,6 +402,7 @@ namespace battleship
         }
 
         
+
         private void randomPickPlayer() //(Random pick of ship positions for player)
         {
             for (int i = 0; i < playerShips.Length; i++) //Go through every ship of playerShips
@@ -419,7 +447,6 @@ namespace battleship
                         if (setBoxesPlayer[tempRow, tempColumn] == lbl.Name)
                         {
                             lbl.BackColor = playerShips[i].Color;
-                            
                         }
                     }
                 }
@@ -428,7 +455,6 @@ namespace battleship
 
         
       
-
         private void onClick(object sender, EventArgs e)    //(when user clicks on boxes)
         {
             round++;
@@ -441,7 +467,7 @@ namespace battleship
             {
                 if (ajChars[i] == tempRow)
                 {
-                    row = ajChars[i]-65;    //A-J in ASCII => 065-074
+                    row = ajChars[i]-65;    //A-J ASCII => 065-074
                 }
             }
             int col = int.Parse(btnName.Substring(1)) - 1;
@@ -456,7 +482,7 @@ namespace battleship
             }
             else   //else user gets a shot
             {
-
+                JHit.Play();    //SOUND
                 button.BackColor = Color.FromArgb(50, 100, 50);
                 helpLabel.ForeColor = Color.FromArgb(10, 150, 10);
                 helpLabel.BackColor = Color.FromArgb(10, 50, 10);
@@ -477,7 +503,8 @@ namespace battleship
                                     helpLabel.ForeColor = Color.FromArgb(10, 200, 10);
                                     helpLabel.BackColor = Color.FromArgb(10, 100, 10);
                                     helpLabel.Text = "YOU SUNK ENEMYS " + enemyShips[i].Name.ToUpper();
-                                    enemyShips[i].isSunk = true;
+                                    JSunk.Play();   //SOUND
+                                    enemyShips[i].IsSunk = true;
                                     break;
                                 }
                             }
@@ -492,27 +519,39 @@ namespace battleship
                                     helpLabel.ForeColor = Color.FromArgb(10, 200, 10);
                                     helpLabel.BackColor = Color.FromArgb(10, 100, 10);
                                     helpLabel.Text = "YOU SUNK ENEMYS " + enemyShips[i].Name.ToUpper();
-                                    enemyShips[i].isSunk = true;
+                                    JSunk.Play();   //SOUND
+                                    enemyShips[i].IsSunk = true;
                                     break;
                                 }
                             }
                         }
                     }
                 }
+                if (sumShipSizesEnemy == 0)
+                {
+                    helpLabel.ForeColor = Color.FromArgb(220, 220, 250);
+                    helpLabel.BackColor = Color.FromArgb(50, 100, 50);
+                    youLabel.BackColor = Color.FromArgb(30, 35, 65);
+                    youLabel.ForeColor = Color.FromArgb(220, 220, 250);
+                    enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
+                    enemyLabel.ForeColor = Color.FromArgb(220, 220, 255);
+                    helpLabel.Text = "YOU WON! CONGRATULATIONS " + player.PlayerName;
+                    player.PlayerWins++;
+                    JWin.Play();    //SOUND
+                    endGame();
+                }
             }
-            
             enemyLabel.BackColor = Color.FromArgb(30, 35, 65);  //change color of labels
             youLabel.BackColor = Color.FromArgb(65, 70, 110);
-            waiting = 0;    //waiting for opponent to play , CHANGE WAITFORENEMY TIMER FOR FASTER OR SLOWER WAITING
-            foreach(Button btn in this.Controls.OfType<Button>())
+            foreach (Button btn in this.Controls.OfType<Button>())
             {
                 btn.Enabled = false;
             }
+            waiting = 0;    //waiting for opponent to play , CHANGE WAITFORENEMY INTERVAL FOR FASTER OR SLOWER WAITING
             if (gameOver == false)
             {
                 waitForEnemy.Start();
             }
-            
         }
 
 
@@ -556,12 +595,9 @@ namespace battleship
                         col = tempShip.Column + tempRnd;
                     }
                 }
-
-
-
-            }       //else just pick a random coordinate
+            }       
             else
-            {
+            {   //else just pick a random coordinate
                 row = random.Next(0, 10);
                 col = random.Next(0, 10);
                 while (previousTriesEnemy[row, col] == 1)
@@ -570,7 +606,6 @@ namespace battleship
                     col = random.Next(0, 10);
                 }
             }
-            
             foreach(Label tempLbl in this.Controls.OfType<Label>())
             {
                 if (tempLbl.Name == setBoxesPlayer[row, col])
@@ -579,8 +614,6 @@ namespace battleship
                 }
             }
             previousTriesEnemy[row, col] = 1;   //make the row,col coordinates unavailable 
-
-            
             if (emptyBoxesPlayer[row, col] == 0)    //if the emptyBoxesPlayer in the row, col coordinates is 0 then no ship was hit 
             {
 
@@ -590,9 +623,10 @@ namespace battleship
                 enemyMissedTries++;
                 lbl.Text = "^";
 
-            }   //else it was hit
+            }   
             else
-            {
+            {   //else it was hit
+                JHit.Play(); //SOUND
                 helpLabel.BackColor = Color.FromArgb(50, 10, 10);
                 helpLabel.ForeColor = Color.FromArgb(150, 10, 10);
                 helpLabel.Text = "ONE OF YOUR SHIP GOT A HIT!";
@@ -615,7 +649,8 @@ namespace battleship
                                 helpLabel.ForeColor = Color.FromArgb(200, 10, 10);
                                 helpLabel.BackColor = Color.FromArgb(100, 10, 10);
                                 helpLabel.Text = "WARNING! ENEMY SUNK YOUR " + playerShips[i].Name.ToUpper();
-                                playerShips[i].isSunk = true;
+                                JSunk.Play();   //SOUND
+                                playerShips[i].IsSunk = true;
                                 break;
                             }
                         }
@@ -630,43 +665,53 @@ namespace battleship
                                 helpLabel.ForeColor = Color.FromArgb(200, 10, 10);
                                 helpLabel.BackColor = Color.FromArgb(100, 10, 10);
                                 helpLabel.Text = "WARNING! ENEMY SUNK YOUR " + playerShips[i].Name.ToUpper();
-                                playerShips[i].isSunk = true;
+                                JSunk.Play();   //SOUND
+                                playerShips[i].IsSunk = true;
                                 break;
                             }
                         }
                     }
                 }
             }
-
-            foreach (Button btn in this.Controls.OfType<Button>())  //make buttons that user didnt click on available again
+            if (sumShipSizesPlayer == 0)    //check if there are still ships available for player
             {
-                if (btn.Name == "leaveButton")
+                helpLabel.ForeColor = Color.FromArgb(220, 220, 250);
+                helpLabel.BackColor = Color.FromArgb(100, 50, 50);
+                youLabel.BackColor = Color.FromArgb(30, 35, 65);
+                youLabel.ForeColor = Color.FromArgb(220, 220, 250);
+                enemyLabel.BackColor = Color.FromArgb(30, 35, 65);
+                enemyLabel.ForeColor = Color.FromArgb(220, 220, 255);
+                helpLabel.Text = "ENEMY WON!";
+                player.PlayerLoses++;
+                lostGame();
+            }
+            else
+            {
+                foreach (Button btn in this.Controls.OfType<Button>())  //make buttons that user didnt click on available again
                 {
-                    btn.Enabled = true;
-                }
-                for (int i = 0; i < 10; i++)
-                {
-                    for (int j = 0; j < 10; j++)
+                    if (btn.Name == "leaveButton")
                     {
-                        if (setBoxesEnemy[i, j] == btn.Name && previousTriesPlayer[i, j] == 1)
+                        btn.Enabled = true;
+                    }
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 10; j++)
                         {
-                            btn.Enabled = false;   
+                            if (setBoxesEnemy[i, j] == btn.Name && previousTriesPlayer[i, j] == 1)
+                            {
+                                btn.Enabled = false;
+                            }
+                            else if (setBoxesEnemy[i, j] == btn.Name && previousTriesPlayer[i, j] == 0)
+                            {
+                                btn.Enabled = true;
+                            }
                         }
-                        else if(setBoxesEnemy[i, j] == btn.Name && previousTriesPlayer[i, j] ==0)
-                        {
-                            btn.Enabled = true;
-                        }
-                        
-
                     }
                 }
+                youLabel.BackColor = Color.FromArgb(30, 35, 65);
+                enemyLabel.BackColor = Color.FromArgb(65, 70, 110);
             }
-            youLabel.BackColor = Color.FromArgb(30, 35, 65);
-            enemyLabel.BackColor = Color.FromArgb(65, 70, 110);
         }
-
-
-
     }
 }
 

@@ -16,30 +16,35 @@ namespace battleship
         public int Column { get; set; }
         public int Hits { get; set; }
         public bool IsVertical { get; set; }
-        public bool isSunk { get; set; }
-        public Color Color { get; set; }
+        public bool IsSunk { get; set; }
+        private Color color;
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
 
-        public Ship(string name, int size)
+        public Ship(string name, int size)  //Constructor with 2 args name and size 
         {
             Name = name;
             Size = size;
-            isSunk = false;
+            IsSunk = false;
             Hits = 0;
             if (Name == "AirCraft")
             {
-                Color = Color.FromArgb(165, 15, 140);
+                color = Color.FromArgb(165, 110, 5);
             }
             else if(Name == "Destroyer")
             {
-                Color = Color.FromArgb(15, 50, 160);
+                color = Color.FromArgb(10, 165, 80);
             }
             else if(Name == "Military")
             {
-                Color = Color.FromArgb(50,180,15);
+                color = Color.FromArgb(10,90,165);
             }
             else
             {
-                Color = Color.FromArgb(255,190,5);
+                color = Color.FromArgb(130,10,165);
             }
         }
     }

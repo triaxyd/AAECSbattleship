@@ -13,10 +13,9 @@ namespace battleship
 {
     public partial class MenuForm : Form
     {
-        private string userName;
+        private string userName,difficulty;
         private SoundPlayer mainSound;
         private int counter;
-        string difficulty;
         public MenuForm()
         {
             InitializeComponent();

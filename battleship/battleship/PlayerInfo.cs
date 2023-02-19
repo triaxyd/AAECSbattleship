@@ -18,7 +18,7 @@ namespace battleship
         {
 
         }
-        public PlayerInfo(string name, string difficulty)
+        public PlayerInfo(string name, string difficulty)   //constructor with 2 args name and difficulty
         {
             PlayerName = name;
             PlayerDifficulty = difficulty;

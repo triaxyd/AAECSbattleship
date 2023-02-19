@@ -12,7 +12,7 @@ namespace battleship
 {
     public partial class StatsForm : Form
     {
-        List<PlayerInfo> players = SqliteDataAccess.LoadPlayers();
+        List<PlayerInfo> players = SqliteDataAccess.LoadPlayers();  //load players as a list
 
         public StatsForm()
         {
@@ -26,9 +26,9 @@ namespace battleship
             menuForm.Show();
         }
 
-        private void StatsForm_Load(object sender, EventArgs e)
+        private void StatsForm_Load(object sender, EventArgs e)     //show top 3 players by wins
         {
-            List<PlayerInfo> topPlayersByWins = players.OrderByDescending(p => p.PlayerWins).Take(3).ToList();
+            List<PlayerInfo> topPlayersByWins = players.OrderByDescending(p => p.PlayerWins).Take(3).ToList();  //Order players take the first 3 and create a new list topPlayersByWins
             username1.Text =topPlayersByWins[0].PlayerName;
             difficulty1.Text = topPlayersByWins[0].PlayerDifficulty;
             wins1.Text = topPlayersByWins[0].PlayerWins.ToString();

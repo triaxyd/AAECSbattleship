@@ -13,7 +13,7 @@ namespace battleship
     public class SqliteDataAccess
     {
         
-        public static List<PlayerInfo> LoadPlayers()
+        public static List<PlayerInfo> LoadPlayers()    //Load Players in list
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -22,7 +22,7 @@ namespace battleship
             }
         } 
 
-        public static void AddPlayer(PlayerInfo player)
+        public static void AddPlayer(PlayerInfo player)     //add player to database 
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -32,9 +32,9 @@ namespace battleship
         }
         
 
-        private static string LoadConnectionString(string id="Default")
+        private static string LoadConnectionString(string id="Default")     //gets the connection string
         {
-            return ConfigurationManager.ConnectionStrings[id].ConnectionString; //gets the connection string
+            return ConfigurationManager.ConnectionStrings[id].ConnectionString; 
         } 
     }
 }
